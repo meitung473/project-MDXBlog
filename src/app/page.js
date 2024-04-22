@@ -1,9 +1,8 @@
 import BlogSummaryCard from "@/components/BlogSummaryCard";
 
 import { BLOG_TITLE } from "@/constants";
-import { getBlogPostList } from "@/helpers/file-helpers";
+import getPostsList from "@/helpers/getPosts";
 import styles from "./homepage.module.css";
-
 export const metadata = {
     title: BLOG_TITLE,
     description: "A wonderful blog about JavaScript",
@@ -15,7 +14,7 @@ export const metadata = {
 };
 
 async function Home() {
-    const files = await getBlogPostList();
+    const files = await getPostsList();
     return (
         <div className={styles.wrapper}>
             <h1 className={styles.mainHeading}>Latest Content:</h1>
