@@ -2,18 +2,18 @@ import matter from "gray-matter";
 import fs from "node:fs/promises";
 import path from "node:path";
 
-export async function getPostsList() {
+export default async function getPostsList() {
     const fileNames = await readDirFiles("/content");
     const posts = [];
     for (let fileName of fileNames) {
-        if (/\.mdx$/.test(fileName)) return;
+        if (!/\.mdx?$/.test(fileName)) continue;
 
         const rawContent = await readFile(`/content/${fileName}`);
 
         const { data: frontmatter } = matter(rawContent);
 
         posts.push({
-            slug: fileName.replace(".mdx", ""),
+            slug: fileName.slice(0, fileName.lastIndexOf(".")),
             ...frontmatter,
         });
     }

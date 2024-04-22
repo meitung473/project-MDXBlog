@@ -7,7 +7,7 @@ import VisuallyHidden from "@/components/VisuallyHidden";
 import Link from "next/link";
 import styles from "./Header.module.css";
 import ToggleThemeButton from "./ToggleThemeButton";
-function Header({ theme, className, ...delegated }) {
+function Header({ initialTheme, className, ...delegated }) {
     return (
         <header className={clsx(styles.wrapper, className)} {...delegated}>
             <Logo />
@@ -25,7 +25,7 @@ function Header({ theme, className, ...delegated }) {
                         <VisuallyHidden>View RSS feed</VisuallyHidden>
                     </Link>
                 </button>
-                <ToggleThemeButton initialTheme={theme} />
+                <ToggleThemeButton initialTheme={initialTheme} />
             </div>
         </header>
     );
