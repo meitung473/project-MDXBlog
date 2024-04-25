@@ -15,7 +15,6 @@ export const metadata = {
 
 async function Home() {
     const files = await getPostsList();
-
     return (
         <div className={styles.wrapper}>
             <h1 className={styles.mainHeading}>Latest Content:</h1>
