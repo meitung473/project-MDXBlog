@@ -8,7 +8,7 @@ export const metadata = {
     description: "A wonderful blog about JavaScript",
     alternates: {
         types: {
-            "application/rss+xml": "http://localhost:300/rss.xml",
+            "application/rss+xml": `${process.env.BASE_URL}/rss.xml`,
         },
     },
 };

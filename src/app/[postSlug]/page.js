@@ -13,7 +13,7 @@ export async function generateMetadata({ params }) {
         return null;
     }
 
-    const { frontmatter } = blogData;
+    const { frontmatter } = blogPostData;
     return {
         title: frontmatter.title,
         description: frontmatter.abstract,

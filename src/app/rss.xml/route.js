@@ -4,10 +4,7 @@ import { getBlogPostList } from "@/helpers/file-helpers";
 import RSS from "rss";
 
 export async function GET() {
-    const siteUrl =
-        process.env.NODE_ENV === "production"
-            ? process.env.NEXT_PUBLIC_BASE_URL
-            : "localhost:3000";
+    const siteUrl = process.env.BASE_URL;
 
     const feedOptions = {
         title: BLOG_TITLE,
