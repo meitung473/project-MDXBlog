@@ -15,11 +15,11 @@ export const metadata = {
 
 async function Home() {
     const files = await getPostsList();
+
     return (
         <div className={styles.wrapper}>
             <h1 className={styles.mainHeading}>Latest Content:</h1>
 
-            {/* TODO: Iterate over the data read from the file system! */}
             {files.map(({ slug, title, abstract, publishedOn }) => {
                 return (
                     <BlogSummaryCard

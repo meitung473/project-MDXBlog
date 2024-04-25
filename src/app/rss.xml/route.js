@@ -5,7 +5,9 @@ import RSS from "rss";
 
 export async function GET() {
     const siteUrl =
-        process.env.NODE_ENV === "production" ? "" : "localhost:3000";
+        process.env.NODE_ENV === "production"
+            ? process.env.NEXT_PUBLIC_BASE_URL
+            : "localhost:3000";
 
     const feedOptions = {
         title: BLOG_TITLE,
@@ -14,11 +16,10 @@ export async function GET() {
         site_url: siteUrl,
         // image_url: "http://example.com/icon.png",
         // docs: "http://example.com/rss/docs.html",
-        managingEditor: "Rosa Hong",
-        webMaster: "Rosa Hong",
-        copyright: `${new Date().getFullYear()} Rosa Hong`,
+        managingEditor: "asd8870506@gmail.com (Rosa Hong)",
+        webMaster: "asd8870506@gmail.com (Rosa Hong)",
+        copyright: `${new Date().getFullYear().toString()} Rosa Hong`,
         language: "zh-tw",
-        // categories: ['Category 1','Category 2','Category 3'],
         pubDate: new Date(),
         ttl: "60",
     };
@@ -39,7 +40,7 @@ export async function GET() {
 
     return new Response(feed.xml({ indent: true }), {
         headers: {
-            "Content-Type": "application/atom+xml; charset=utf-8",
+            "Content-Type": "application/xml; charset=utf-8",
         },
     });
 }
